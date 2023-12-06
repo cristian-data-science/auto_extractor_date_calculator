@@ -48,13 +48,18 @@ with st.expander("Información para el uso"):
     Para la correcta carga del archivo este debe tener dos hojas en el Excel subido:
     - Una llamada "tiempo de acreditación" y tiene que contener los campos "RUT", "CREACIÓN DE FERFIL ES SIGA" y "ACREDITADO".
     - Y otra hoja llamada "Bitacora 4540006488" con al menos los campos "Evento" y "Descripción Evento".
-    
+
+    """)
+with st.expander("Lógica aplicada"):
+    st.write("""
     La logica aplicada es la siguiente:
     - Se extrae el campo rut de la bitacora a traves de expresiones regulares en un nuevo campo llamado RUT
     - Se extraen los ids que no son ruts pero que vendrían siendo identificador de trabajador de todas formas
     - Se hace un cruce de los ruts base (hoja tiempo de acreditación) en función de la bitacora y se extrae la fecha de aprobación más antigua
     - Se calcula el tiempo en días desde la creación hasta la Aprobación Pase Trabajador (la más antigua)
     """)
+ 
+
 
 st.header('Sube tu archivo Excel')
 
